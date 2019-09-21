@@ -1,6 +1,6 @@
 # native_preferences
 
-A new flutter plugin project.
+A Flutter plugin that reads key-value pairs from SharedPreferences and NSUserDefaults, making it easier to migrate from purely native code to Flutter.
 
 ## Getting Started
 
