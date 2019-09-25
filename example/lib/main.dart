@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/services.dart';
 import 'package:native_preferences/native_preferences.dart';
+import 'package:native_preferences/native_key.dart';
 
 void main() => runApp(MyApp());
 
@@ -24,11 +25,11 @@ class _MyAppState extends State<MyApp> {
   Future<void> initPlatformState() async {
     String platformVersion;
     // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      platformVersion = await NativePreferences.platformVersion;
-    } on PlatformException {
-      platformVersion = 'Failed to get platform version.';
-    }
+//    try {
+//      platformVersion = await NativePreferences.platformVersion;
+//    } on PlatformException {
+//      platformVersion = 'Failed to get platform version.';
+//    }
 
     // If the widget was removed from the tree while the asynchronous platform
     // message was in flight, we want to discard the reply rather than calling
@@ -53,4 +54,19 @@ class _MyAppState extends State<MyApp> {
       ),
     );
   }
+
+  testPreferences() {
+    var nativePreferences = NativePreferences()
+      ..androidPreferenceName = ''
+      ..iosPreferenceName = ''
+      ..keySet = {
+        Key.TOKEN: NativeKey(androidKey: 'token_pref', iosKey: 'token'),
+        Key.AGE: NativeKey(androidKey: 'age_pref', iosKey: 'age')
+      };
+
+    nativePreferences.getString(Key.TOKEN);
+    nativePreferences.getInt(Key.AGE);
+  }
 }
+
+enum Key { TOKEN, AGE }
