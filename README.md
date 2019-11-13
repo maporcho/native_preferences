@@ -2,13 +2,4 @@
 
 A Flutter plugin that reads key-value pairs from SharedPreferences and NSUserDefaults, making it easier to migrate from purely native code to Flutter.
 
-## Getting Started
-
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+It provides an easy way to retrive values stored under different keys in the Android and iOS versions of an app, and makes no assumptions on the preference file name or key prefix.
